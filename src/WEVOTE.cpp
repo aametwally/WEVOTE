@@ -183,8 +183,8 @@ int main(int argc, char *argv[])
 		if (Reads[i].numToolsReported == 0)
 		{
 			Reads[i].resolvedTaxon=0;
-			Reads[i].numToolsAgreed=0;
-			Reads[i].score=0;
+			Reads[i].numToolsAgreed=numToolsUsed;
+			Reads[i].score=1;
 			continue;
 		}
 		else if(Reads[i].numToolsReported == 1 && minNumAgreed<=1)

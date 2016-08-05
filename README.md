@@ -1,9 +1,6 @@
 # What is WEVOTE? #
 WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies metagenome shotgun sequencing DNA reads based on an ensemble of existing methods using k-mer based, marker-based, and naive-similarity based approaches.
 
-### WEVOTE paper on bioRxiv: ###
-Ahmed Metwally, Yang Dai, Patricia Finn, David Perkins, WEVOTE: Weighted Voting Taxonomic Identification Method of Microbial Sequences,bioRxiv (2016)
-
 
 # How to run the WEVOTE Pipeline: #
 1. ./install.sh
@@ -41,8 +38,6 @@ Ahmed Metwally, Yang Dai, Patricia Finn, David Perkins, WEVOTE: Weighted Voting 
 # Example: #
 
 ```
-#!shell
-
 $ ./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
 

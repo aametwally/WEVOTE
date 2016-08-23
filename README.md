@@ -3,16 +3,13 @@ WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies me
 
 
 # How to run the WEVOTE Pipeline: #
-1. ./install.sh
+1. install.sh
 1. Install BLASTN, Kraken, TIPP, CLARK, and MetaPhlan on your machine.
-1. Add the executable and the appropriate databases pathes to wevote.cfg
-1. ./wevote_pipeline.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
-
+1. Add the executables and database paths to wevote.cfg
+1. wevote_pipeline.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
 
 
 # Implemented options: #
-
-
 ```
 #!c++
 

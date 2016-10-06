@@ -1,5 +1,5 @@
 # What is WEVOTE? #
-WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies metagenome shotgun sequencing DNA reads based on an ensemble of existing methods using k-mer based, marker-based, and naive-similarity based approaches.
+WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies metagenome shotgun sequencing DNA reads based on an ensemble of existing methods using k-mer based, marker-based, and naive-similarity based approaches. Here is the full paper on PLOS ONE: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163527
 
 
 # How to run the WEVOTE Pipeline: #

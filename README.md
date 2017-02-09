@@ -11,8 +11,6 @@ WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies me
 
 # Implemented options: #
 ```
-#!c++
-
 -h|--help                     help flag
 -i|--input <input-file>       input query
 -o|--output <output-path>     Output prefix
@@ -38,7 +36,5 @@ WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies me
 $ ./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
 
-### WEVOTE Google group:###
-https://groups.google.com/d/forum/wevote-users
 
 ## Please report any bugs & suggestions to: ametwa2@uic.edu ##

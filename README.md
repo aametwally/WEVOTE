@@ -8,7 +8,7 @@ WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies me
 ### Prerequisites
 * Install BLASTN, Kraken, TIPP, CLARK, and MetaPhlan on your machine.
 * g++
-* openMP
+* OpenMP
 
 
 
@@ -20,7 +20,7 @@ git clone https://github.com/aametwally/WEVOTE.git
 ```
 
 
-Then, change directory to WEVOTE. Then build WEVOTE from scratch:
+Change directory to WEVOTE, then build WEVOTE from scratch:
 ```
 cd WEVOTE
 ./install.sh
@@ -40,7 +40,7 @@ metaphlanPath=""
 tippPath=""
 ```
 
-To execute the WEVOTE on fasta sequence file, use:
+To execute the WEVOTE on FASTA sequence file, use:
 ```
 ./wevote_pipeline.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
 ```
@@ -48,7 +48,7 @@ To execute the WEVOTE on fasta sequence file, use:
 
 ### Example:
 ```
-$ ./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
+./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
 
 
@@ -69,6 +69,21 @@ $ ./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clar
 --metaphlan                   Run MetaPhlAn
 -c|--classfy                  Start the pipeline from the classification step. i.e., skip running individual tools
 ```
+
+
+### WEVOTE Output Format
+Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:
+* The sequence ID, obtained from the FASTA header.
+* The number of tools that have classified the sequence.
+* The number of tools that agreed on WEVOTE decision.
+* Classification score.
+* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #1.
+* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #2.
+* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #3.
+* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #4.
+* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #5.
+* The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE.
+
 
 ### How to generate taxonomic profile from WEVOTE output:
 

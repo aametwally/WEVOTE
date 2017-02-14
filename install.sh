@@ -1,6 +1,6 @@
 #!/bin/bash
 
 
-VERSION="0.1.2"
+VERSION="1.2.0"
 make -C src
 make -C src install

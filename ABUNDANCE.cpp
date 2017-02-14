@@ -168,7 +168,7 @@ int main(int argc, char *argv[])
 	for(map<uint32_t, taxA>::iterator it = taxonAnnotate_Map.begin(); it != taxonAnnotate_Map.end(); ++it)
 	{
 		if(it->first == 0)
-		cout << "Total #reads have Taxon 0 = "<< " = " << it->second.count << "\n";
+		cout << "Total #reads have Taxon 0 = " << it->second.count << "\n";
 	}
 	
 	

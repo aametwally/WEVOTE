@@ -33,7 +33,7 @@ Usage="\nUsage: $0 -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB
 
 Implemented options:
 -h|--help                  \t help flag
--i|--input <input-file>    \t tinput query
+-i|--input <input-file>    \t input query
 -o|--output <output-path>  \t Output prefix
 --db <taxonomy_db>         \t taxonomy database path
 --threads <num-threads>    \t Number of threads
@@ -148,7 +148,7 @@ done
 
 
 
-if [ outputPrefix!="" ]; then
+if [ $outputPrefix!="" ]; then
 
 	prefix=`basename ${outputPrefix%.*}`
 	dirPath=`readlink -f $outputPrefix | xargs dirname`
@@ -299,8 +299,8 @@ echo -e `date` "\tTax Identification for "$prefix" using WEVOTE executed in= "$D
 
 
 ###### Get complete taxonomy and relative abundance
-START=$(date +%s)
-./calcualteAbundance.sh $dirPath/$prefix/$prefix $taxonomyDB	
-END=$(date +%s)
-DIFF=`expr $(($END - $START)) / 60`
-echo -e `date` "\tTaxonomy and Relative abundance calculations for "$prefix"_WEVOTE executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
+#START=$(date +%s)
+#./calcualteAbundance.sh $dirPath/$prefix/$prefix $taxonomyDB	
+#END=$(date +%s)
+#DIFF=`expr $(($END - $START)) / 60`
+#echo -e `date` "\tTaxonomy and Relative abundance calculations for "$prefix"_WEVOTE executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"

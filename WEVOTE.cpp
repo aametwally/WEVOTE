@@ -293,7 +293,8 @@ int main(int argc, char *argv[])
 			PrintString = PrintString + ss.str();
 		}
 		
-		myfile << Reads[i].seqID << "\t" << Reads[i].numToolsAgreed<<"\t"<< Reads[i].numToolsReported << "\t" << Reads[i].score << "\t" << Reads[i].resolvedTaxon << PrintString << "\n";
+	//	myfile << Reads[i].seqID << "\t" << Reads[i].numToolsAgreed<<"\t"<< Reads[i].numToolsReported << "\t" << Reads[i].score << "\t" << Reads[i].resolvedTaxon << PrintString << "\n";
+	myfile << Reads[i].seqID << "\t"<< Reads[i].numToolsReported << "\t" << Reads[i].numToolsAgreed<<"\t" << Reads[i].score << "\t" << PrintString << "\t" << Reads[i].resolvedTaxon << "\n";
 		
 	}	
 	myfile.close();
@@ -301,17 +302,17 @@ int main(int argc, char *argv[])
 	
 	
 	/// Export WEVOTE output in CSV format <seqID, taxID, score, # toolsAgreed>	
-	myfile.open (OutputWEVOTE.c_str());
-	if (!myfile.is_open())
-	{
-		cout << "Error opening Output file: " << OutputWEVOTE << "\n";
-		exit(1);	
-	}
-	for (uint32_t i=0 ; i<Reads.size() ;i++)
-	{	
-		myfile << Reads[i].seqID << "," << Reads[i].resolvedTaxon << "," << Reads[i].numToolsAgreed << "," << Reads[i].score <<"\n";
-	}
-	myfile.close();
+//	myfile.open (OutputWEVOTE.c_str());
+//	if (!myfile.is_open())
+//	{
+//		cout << "Error opening Output file: " << OutputWEVOTE << "\n";
+//		exit(1);	
+//	}
+//	for (uint32_t i=0 ; i<Reads.size() ;i++)
+//	{	
+//		myfile << Reads[i].seqID << "," << Reads[i].resolvedTaxon << "," << Reads[i].numToolsAgreed << "," << Reads[i].score <<"\n";
+//	}
+//	myfile.close();
 	
 				
 }

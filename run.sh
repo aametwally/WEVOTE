@@ -9,7 +9,7 @@
 
 
 
-./wevote_pipeline.sh -i test_contigs.fa -o test_contigs_output_extreme_3tools_4 --db WEVOTE_DB/ --kraken --blastn --clark --threads 16
+./wevote_pipeline.sh -i test_contigs.fa -o test_contigs_output_extreme_3tools_5 --db WEVOTE_DB/ --kraken --blastn --clark --metaphlan --threads 16
 
 
 

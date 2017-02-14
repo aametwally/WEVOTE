@@ -290,7 +290,7 @@ int main(int argc, char *argv[])
 	myfile << "taxon" << "," << "count" << "," << "root" << "," << "superkingdom" << "," << "kingdom" << "," << "phylum" << "," << "class" << "," << "order" << "," << "family" << ","<< "genus" << "," << "species" << "\n";
 	for(map<uint32_t, taxA>::iterator it = taxonAnnotate_Map.begin(); it != taxonAnnotate_Map.end(); ++it)
 	{
-		myfile << it->second.taxon << "," << it->second.count << "," << it->second.root << "," << it->second.superkingdom << "," << it->second.kingdom << "," << it->second.phylum << "," << it->second.clas << "," << it->second.order << "," << it->second.family << ","<< it->second.genus << "," << it->second.species << "\n";
+		myfile << it->second.taxon << "," << it->second.count << "," << it->second.superkingdom << "," << it->second.kingdom << "," << it->second.phylum << "," << it->second.clas << "," << it->second.order << "," << it->second.family << ","<< it->second.genus << "," << it->second.species << "\n";
 	}
 
 	myfile.close();

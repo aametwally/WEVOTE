@@ -112,16 +112,15 @@ WEVOTE supports calculating the abundance for the reads or contigs profiling. To
 
 ### Abundance profiling output format:
 Each line of the Abundance file has 10 fileds. Output lines have comma-delimted fields; from left to right, they are:
-* Taxon: taxonomy ID
-* Count: number of reads classified to the taxon in the first field
-* Superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon
-* Kingdom: the name of the kingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined kingdom for this taxon
-* Phylum: the name of the phylum corresponding to the taxonomy id of the first field. This field is left empty if no defined phylum for this taxon
-* Class: the name of the class corresponding to the taxonomy id of the first field. This field is left empty if no defined class for this taxon
-* Order: the name of the order corresponding to the taxonomy id of the first field. This field is left empty if no defined order for this taxon
-* Family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
-* Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
-* Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
-
+1. Taxon: taxonomy ID
+1. Count: number of reads classified to the taxon in the first field
+1. Superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon
+1. Kingdom: the name of the kingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined kingdom for this taxon
+1. Phylum: the name of the phylum corresponding to the taxonomy id of the first field. This field is left empty if no defined phylum for this taxon
+1. Class: the name of the class corresponding to the taxonomy id of the first field. This field is left empty if no defined class for this taxon
+1. Order: the name of the order corresponding to the taxonomy id of the first field. This field is left empty if no defined order for this taxon
+1. Family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
+1. Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
+1. Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
 
 #### Please report any bugs & suggestions to: ametwa2@uic.edu

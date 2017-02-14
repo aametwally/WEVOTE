@@ -99,6 +99,7 @@ WEVOTE supports calculating the abundance for the reads or contigs profiling. To
 ./calcAbundance.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
 ```
 
+
 ### Implemented options: 
 ```
 -h|--help                  	 help flag

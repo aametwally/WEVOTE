@@ -86,10 +86,10 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 * The number of tools that agreed on WEVOTE decision.
 * Classification score.
 * Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #1.
-* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #2.
-* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #3.
-* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #4.
-* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #5.
+* Taxonomy ID used to classify the sequence by tool #2. This is 0 if the sequence is unclassified by tool #2.
+* Taxonomy ID used to classify the sequence by tool #3. This is 0 if the sequence is unclassified by tool #3.
+* Taxonomy ID used to classify the sequence by tool #4. This is 0 if the sequence is unclassified by tool #4.
+* Taxonomy ID used to classify the sequence by tool #5. This is 0 if the sequence is unclassified by tool #5.
 * The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE.
 
 
@@ -112,15 +112,15 @@ WEVOTE supports calculating the abundance for the reads or contigs profiling. To
 
 ### Abundance profiling output format:
 Each line of the Abundance file has 10 fileds. Output lines have comma-delimted fields; from left to right, they are:
-1. Taxon: taxonomy ID  
-2. Count: number of reads classified to the taxon in the first field  
-3. Superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon  
-4. Kingdom: the name of the kingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined kingdom for this taxon  
-5. Phylum: the name of the phylum corresponding to the taxonomy id of the first field. This field is left empty if no defined phylum for this taxon  
-6. Class: the name of the class corresponding to the taxonomy id of the first field. This field is left empty if no defined class for this taxon  
-7. Order: the name of the order corresponding to the taxonomy id of the first field. This field is left empty if no defined order for this taxon
-8. Family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
-9. Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
-10. Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
+* Taxon: taxonomy ID  
+* Count: number of reads classified to the taxon in the first field  
+* Superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon  
+* Kingdom: the name of the kingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined kingdom for this taxon  
+* Phylum: the name of the phylum corresponding to the taxonomy id of the first field. This field is left empty if no defined phylum for this taxon  
+* Class: the name of the class corresponding to the taxonomy id of the first field. This field is left empty if no defined class for this taxon  
+* Order: the name of the order corresponding to the taxonomy id of the first field. This field is left empty if no defined order for this taxon
+* Family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
+* Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
+* Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
 
 #### Please report any bugs & suggestions to: ametwa2@uic.edu

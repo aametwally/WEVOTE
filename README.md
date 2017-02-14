@@ -22,20 +22,20 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 
 ### Installing, Testing, and Running
 
-Clone the project to your local repository:
+#### Clone the project to your local repository:
 ```
 git clone https://github.com/aametwally/WEVOTE.git
 ```
 
 
-Change directory to WEVOTE, then build WEVOTE from scratch:
+#### Change directory to WEVOTE, then build WEVOTE from scratch:
 ```
 cd WEVOTE
 ./install.sh
 ```
 
 
-Add the executables and databases paths to wevote.cfg
+#### Add the path of each individual tool's executable and database to wevote.cfg
 ```
 taxonomyDB=""
 blastnPath=""
@@ -48,13 +48,13 @@ metaphlanPath=""
 tippPath=""
 ```
 
-To execute the WEVOTE on FASTA sequence file, use:
+#### To execute the WEVOTE on FASTA sequence file, use:
 ```
 ./wevote_pipeline.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
 ```
 
 
-### Example:
+#### Example:
 ```
 ./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
@@ -79,7 +79,7 @@ To execute the WEVOTE on FASTA sequence file, use:
 ```
 
 
-### WEVOTE Classification Output Format:
+### WEVOTE classification Output Format:
 Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:
 * The sequence ID, obtained from the FASTA header.
 * The number of tools that have classified the sequence.
@@ -93,14 +93,14 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 * The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE.
 
 
-### How to generate taxonomic profile from WEVOTE output:
+### How to generate abundance profile from WEVOTE output:
 WEVOTE supports calculating the abundance for the reads or contigs profiling. To execute the the Abundance script on WEVOTE output, use:
 ```
 ./calcAbundance.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
 ```
 
 
-### Implemented options: 
+### Abundance profiling implemented options: 
 ```
 -h|--help                  	 help flag
 -i|--input <input-file>    	 input query
@@ -110,19 +110,18 @@ WEVOTE supports calculating the abundance for the reads or contigs profiling. To
 --seqcount <contig-reads-count-file>		 File that contains how many reads are used to assemble each contig
 ```
 
-### WEVOTE Abundance Output Format:
+### Abundance profiling output format:
 Each line of the Abundance file has 10 fileds. Output lines have comma-delimted fields; from left to right, they are:
-* taxon: taxonomy ID
-* count: number of reads classified to the taxon in the first field
-* superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon
-* kingdom: the name of the kingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined kingdom for this taxon
-* phylum: the name of the phylum corresponding to the taxonomy id of the first field. This field is left empty if no defined phylum for this taxon
-* class: the name of the class corresponding to the taxonomy id of the first field. This field is left empty if no defined class for this taxon
-* order: the name of the order corresponding to the taxonomy id of the first field. This field is left empty if no defined order for this taxon
-* family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
-* genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
-* species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
-
+* Taxon: taxonomy ID
+* Count: number of reads classified to the taxon in the first field
+* Superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon
+* Kingdom: the name of the kingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined kingdom for this taxon
+* Phylum: the name of the phylum corresponding to the taxonomy id of the first field. This field is left empty if no defined phylum for this taxon
+* Class: the name of the class corresponding to the taxonomy id of the first field. This field is left empty if no defined class for this taxon
+* Order: the name of the order corresponding to the taxonomy id of the first field. This field is left empty if no defined order for this taxon
+* Family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
+* Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
+* Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
 
 
 #### Please report any bugs & suggestions to: ametwa2@uic.edu

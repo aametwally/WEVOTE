@@ -1,6 +1,13 @@
 # What is WEVOTE?
-WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies metagenome shotgun sequencing DNA reads based on an ensemble of existing methods using k-mer based, marker-based, and naive-similarity based approaches. Here is the full paper: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163527
+WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies metagenome shotgun sequencing DNA reads based on an ensemble of existing methods using k-mer based, marker-based, and naive-similarity based approaches. The performance evaluation based on fourteen simulated microbiome datasets consistently demonstrates that WEVOTE achieves a high level of sensitivity and precision compared to the individual methods across different taxonomic levels. The major advantage of the WEVOTE pipeline is that the user can make the choice of which tools to use in order to explore the trade-off between sensitivity, precision, time, and memory. The WEVOTE architecture is flexible so that additional taxonomic tools can be easily added, or the current tools can be replaced by improved ones. Moreover, the score assigned to the taxon for each read indicates the confidence level of the assignment. This information is especially useful for the assessment of false positive annotations at a particular taxonomic level. The classification score given by WEVOTE can be used for any downstream analysis that requires the high confidence of the annotated sequences. Here is the full paper: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163527
 
+
+Although the current version of WEVOTE only supports five tools, the voting scheme in our framework is flexible and allows for the inclusion or removal of different methods. The current supported tools are:
+* Kraken: Wood, Derrick E., and Steven L. Salzberg. "Kraken: ultrafast metagenomic sequence classification using exact alignments." Genome biology 15.3 (2014): R46.
+* Clark: Ounit, Rachid, et al. "CLARK: fast and accurate classification of metagenomic and genomic sequences using discriminative k-mers." BMC genomics 16.1 (2015): 236.
+* MetaPhlAn: Segata, Nicola, et al. "Metagenomic microbial community profiling using unique clade-specific marker genes." Nature methods 9.8 (2012): 811-814.
+* TIPP: Nguyen, N. P., Mirarab, S., Liu, B., Pop, M., & Warnow, T. (2014). TIPP: taxonomic identification and phylogenetic profiling. Bioinformatics, 30(24), 3548-3555.
+* BLASTN: Altschul, Stephen F., et al. "Basic local alignment search tool." Journal of molecular biology 215.3 (1990): 403-410.
 
 
 ## Getting Started
@@ -71,7 +78,7 @@ To execute the WEVOTE on FASTA sequence file, use:
 ```
 
 
-### WEVOTE Output Format
+### WEVOTE Classification Output Format:
 Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:
 * The sequence ID, obtained from the FASTA header.
 * The number of tools that have classified the sequence.
@@ -86,10 +93,33 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 
 
 ### How to generate taxonomic profile from WEVOTE output:
-
+WEVOTE supports calculating the abundance for the reads or contigs profiling. To execute the the Abundance script on WEVOTE output, use:
 ```
 ./calcAbundance.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
 ```
+
+### Implemented options: 
+```
+-h|--help                  	 help flag
+-i|--input <input-file>    	 input query
+-p|--prefix <output-prefix>  Output prefix
+--db <taxonomy_db>         	 taxonomy database path
+--threads <num-threads>    	 Number of threads
+--seqcount <contig-reads-count-file>		 File that contains how many reads are used to assemble each contig
+```
+
+### WEVOTE Abundance Output Format:
+Each line of the Abundance file has 10 fileds. Output lines have comma-delimted fields; from left to right, they are:
+* taxon: taxonomy ID
+* count: number of reads classified to the taxon in the first field
+* superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon
+* kingdom: the name of the kingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined kingdom for this taxon
+* phylum: the name of the phylum corresponding to the taxonomy id of the first field. This field is left empty if no defined phylum for this taxon
+* class: the name of the class corresponding to the taxonomy id of the first field. This field is left empty if no defined class for this taxon
+* order: the name of the order corresponding to the taxonomy id of the first field. This field is left empty if no defined order for this taxon
+* family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
+* genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
+* species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
 
 
 

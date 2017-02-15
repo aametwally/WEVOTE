@@ -37,7 +37,6 @@ cd WEVOTE
 
 #### Add the path of each individual tool's executable and database to wevote.cfg
 ```
-taxonomyDB=""
 blastnPath=""
 blastDB=""
 krakenPath=""

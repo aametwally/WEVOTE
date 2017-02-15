@@ -10,7 +10,7 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 * BLASTN: Altschul, Stephen F., et al. "Basic local alignment search tool." Journal of molecular biology 215.3 (1990): 403-410.
 
 
-</br></br></br>
+</br></br>
 
 ## Getting Started
 
@@ -21,8 +21,7 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 * Machine with at least 75 GB to run Kraken and Clark. You may ingore this prerequisites if you will not use kraken or clark.
 * R: for generating summary statitcs, graphs, and messaging the data to be compatible with Phyloseq package.
 
-
-
+</br>
 
 ### Installing, Testing, and Running
 
@@ -63,10 +62,6 @@ tippPath=""
 ```
 
 
-
-
-
-
 ### Implemented options:
 ```
 -h|--help                     help flag
@@ -100,12 +95,13 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 * The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE.
 
 
+</br></br><br>
 ### How to generate abundance profile from WEVOTE output:
 WEVOTE supports calculating the abundance for the reads or contigs profiling. To execute the the Abundance script on WEVOTE output, use:
 ```
 ./calcAbundance.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
 ```
-
+</br>
 
 ### Abundance profiling implemented options: 
 ```
@@ -129,5 +125,5 @@ Each line of the Abundance file has 10 fileds. Output lines have comma-delimted 
 * Family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
 * Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
 * Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
-
+</br></br>
 #### Please report any bugs & suggestions to: ametwa2@uic.edu

@@ -10,6 +10,8 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 * BLASTN: Altschul, Stephen F., et al. "Basic local alignment search tool." Journal of molecular biology 215.3 (1990): 403-410.
 
 
+
+
 ## Getting Started
 
 ### Prerequisites
@@ -18,6 +20,8 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 * OpenMP: for multithreading execution.
 * Machine with at least 75 GB to run Kraken and Clark. You may ingore this prerequisites if you will not use kraken or clark.
 * R: for generating summary statitcs, graphs, and messaging the data to be compatible with Phyloseq package.
+
+
 
 
 ### Installing, Testing, and Running
@@ -57,6 +61,10 @@ tippPath=""
 ```
 ./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
+
+
+
+
 
 
 ### Implemented options:

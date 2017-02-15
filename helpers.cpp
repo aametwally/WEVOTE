@@ -163,19 +163,19 @@ set<uint32_t> get_ancestry(uint32_t taxon)
 
 
 /// Return the taxon of the highest weighted Root-to-Taxon path and passes WEVOTE threshold.
-uint32_t resolve_tree(map<uint32_t, uint32_t> &hit_counts, uint32_t numToolsReported, int minNumAgreed)
+uint32_t resolve_tree(map<uint32_t, uint32_t> &hit_counts, uint32_t numToolsReported, uint32_t minNumAgreed)
 {
 	set<uint32_t> max_taxa;
 	uint32_t max_taxon = 0, max_score = 0;
 	map<uint32_t, uint32_t>::iterator it = hit_counts.begin();	
-	int Threshold=floor(0.5*(double)numToolsReported);
+	uint32_t Threshold=floor(0.5*(double)numToolsReported);
 	
-	if((minNumAgreed-1)>Threshold)
+	if((minNumAgreed-1) > Threshold)
 	Threshold=(minNumAgreed-1);
 
 	while (it != hit_counts.end()) 
 	{
-		if(it->second <=Threshold)
+		if(it->second <= Threshold)
 		{
 			it++;
 			continue;

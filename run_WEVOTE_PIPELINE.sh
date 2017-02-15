@@ -298,9 +298,3 @@ echo -e `date` "\tTax Identification for "$prefix" using WEVOTE executed in= "$D
 
 
 
-###### Get complete taxonomy and relative abundance
-#START=$(date +%s)
-#./calcualteAbundance.sh $dirPath/$prefix/$prefix $taxonomyDB	
-#END=$(date +%s)
-#DIFF=`expr $(($END - $START)) / 60`
-#echo -e `date` "\tTaxonomy and Relative abundance calculations for "$prefix"_WEVOTE executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"

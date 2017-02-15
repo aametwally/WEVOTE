@@ -92,12 +92,6 @@ int main(int argc, char *argv[])
 	nodesFilename=taxonomyDB+"/nodes_wevote.dmp";
 	namesFilename=taxonomyDB+"/names_wevote.dmp";
 	string OutputProfile= prefix + "_Abundance.csv";
-	//~ vector<taxon> TaxaInfo;
-	//~ taxon OneTaxon;
-	//~ vector<uint32_t> InputTaxa;
-	//~ vector<uint32_t> TaxaCount;
-	//~ TaxaInfo.clear();
-	//~ InputTaxa.clear();
 	ifstream file (query.c_str());
 	string line = "";
 	int it=0;
@@ -138,14 +132,11 @@ int main(int argc, char *argv[])
 				{
 					cout << "Taxon 0 presents in line = " << q << "\n";
 				}
-				//~ cout << "taxon before= " << taxon_temp << "\n";
 				taxon_temp = correctTaxan(taxon_temp);
-				//~ cout << "taxon after= " << taxon_temp << "\n";
 			}
 			else if(it==1)
 			{
 					count_temp = atoi(word.c_str());
-					//~ cout << count_temp << "\n";
 					break;
 			}
 											
@@ -259,23 +250,8 @@ int main(int argc, char *argv[])
 			 
 		}
 		
-		
-	//	cout << it->first << " =" << it->second.count << "\n";
-	//	cout << it->first << " =" << it->second.root << "\n";
-	//	cout << it->first << " =" << it->second.superkingdom << "\n";
-	//	cout << it->first << " =" << it->second.kingdom << "\n";
-	//	cout << it->first << " =" << it->second.phylum << "\n";
-	//	cout << it->first << " =" << it->second.clas << "\n";
-		//cout << it->first << " =" << it->second.order << "\n";
-		//cout << it->first << " =" << it->second.family << "\n";
-		//cout << it->first << " =" << it->second.genus << "\n";
-		//~ cout << it->first << " =" << it->second.species << "\n";
 	}
 
-//	cout << "Metoza Kingdom rank = " << rankMap[33208] << "\n";
-//	cout << "Metoza kingdom name = " << namesMap[33208] << "\n";
-//
-//	cout << "Parent ID of chordates = " << standardMap[7711] << "\n";
 	
 	/// Export taxonomy and relative abundance to txt file	
 	ofstream myfile;

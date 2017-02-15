@@ -1,16 +1,18 @@
 #!/bin/bash
 
 #PBS -l nodes=1:ppn=16
-#PBS -l walltime=30:00
+#PBS -l walltime=1:00:00:00
 #PBS -d ./
 #PBS -m abe
 #PBS -M ametwa2@uic.edu
-#PBS -N test_wevote_extreme_4
+#PBS -N test_wevote_bigContig_local
 
 
 
-./wevote_pipeline.sh -i test_contigs.fa -o test_contigs_output_extreme_3tools_5 --db WEVOTE_DB/ --kraken --blastn --clark --metaphlan --threads 16
+./run_WEVOTE_PIPELINE.sh -i contigs.fa -o test_BIGcontigs_4tools_local --db WEVOTE_DB/ --kraken --blastn --clark --metaphlan --threads 16
 
+
+./run_ABUNDANCE.sh -i test_BIGcontigs_4tools_local/test_BIGcontigs_4tools_local_WEVOTE_Details.txt -p test_BIGcontigs_4tools_local/Hadoooo --db WEVOTE_DB/ --seqcount ReadsPerContigSorted.txt
 
 
 #WEVOTE:

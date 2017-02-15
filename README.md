@@ -61,7 +61,7 @@ tippPath=""
 ./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
 
-
+</br>
 ### Implemented options:
 ```
 -h|--help                     help flag
@@ -79,7 +79,7 @@ tippPath=""
 --metaphlan                   Run MetaPhlAn
 -c|--classfy                  Start the pipeline from the classification step. i.e., skip running individual tools
 ```
-
+</br>
 
 ### WEVOTE classification Output Format:
 Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:

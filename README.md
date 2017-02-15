@@ -10,6 +10,8 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 * BLASTN: Altschul, Stephen F., et al. "Basic local alignment search tool." Journal of molecular biology 215.3 (1990): 403-410.
 
 
+</br></br>
+
 ## Getting Started
 
 ### Prerequisites
@@ -19,6 +21,7 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 * Machine with at least 75 GB to run Kraken and Clark. You may ingore this prerequisites if you will not use kraken or clark.
 * R: for generating summary statitcs, graphs, and messaging the data to be compatible with Phyloseq package.
 
+</br>
 
 ### Installing, Testing, and Running
 
@@ -58,7 +61,7 @@ tippPath=""
 ./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
 
-
+</br>
 ### Implemented options:
 ```
 -h|--help                     help flag
@@ -76,7 +79,7 @@ tippPath=""
 --metaphlan                   Run MetaPhlAn
 -c|--classfy                  Start the pipeline from the classification step. i.e., skip running individual tools
 ```
-
+</br>
 
 ### WEVOTE classification Output Format:
 Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:
@@ -92,12 +95,13 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 * The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE.
 
 
+</br></br><br>
 ### How to generate abundance profile from WEVOTE output:
 WEVOTE supports calculating the abundance for the reads or contigs profiling. To execute the the Abundance script on WEVOTE output, use:
 ```
 ./calcAbundance.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
 ```
-
+</br>
 
 ### Abundance profiling implemented options: 
 ```
@@ -108,7 +112,7 @@ WEVOTE supports calculating the abundance for the reads or contigs profiling. To
 --threads <num-threads>    	 Number of threads
 --seqcount <contig-reads-count-file>		 File that contains how many reads are used to assemble each contig
 ```
-
+</br>
 ### Abundance profiling output format:
 Each line of the Abundance file has 10 fileds. Output lines have comma-delimted fields; from left to right, they are:
 * Taxon: taxonomy ID  
@@ -122,4 +126,7 @@ Each line of the Abundance file has 10 fileds. Output lines have comma-delimted 
 * Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
 * Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
 
-#### Please report any bugs & suggestions to: ametwa2@uic.edu
+</br></br>
+
+
+### Please report any bugs & suggestions to: ametwa2@uic.edu

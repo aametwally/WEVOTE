@@ -112,7 +112,7 @@ WEVOTE supports calculating the abundance for the reads or contigs profiling. To
 --threads <num-threads>    	 Number of threads
 --seqcount <contig-reads-count-file>		 File that contains how many reads are used to assemble each contig
 ```
-
+</br>
 ### Abundance profiling output format:
 Each line of the Abundance file has 10 fileds. Output lines have comma-delimted fields; from left to right, they are:
 * Taxon: taxonomy ID  
@@ -125,5 +125,8 @@ Each line of the Abundance file has 10 fileds. Output lines have comma-delimted 
 * Family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
 * Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
 * Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
+
 </br></br>
-#### Please report any bugs & suggestions to: ametwa2@uic.edu
+
+
+### Please report any bugs & suggestions to: ametwa2@uic.edu

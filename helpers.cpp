@@ -170,7 +170,7 @@ uint32_t resolve_tree(map<uint32_t, uint32_t> &hit_counts, uint32_t numToolsRepo
 	map<uint32_t, uint32_t>::iterator it = hit_counts.begin();	
 	uint32_t Threshold=floor(0.5*(double)numToolsReported);
 	
-	if((minNumAgreed-1) > Threshold)
+	if(minNumAgreed > Threshold)
 	Threshold=(minNumAgreed-1);
 
 	while (it != hit_counts.end()) 

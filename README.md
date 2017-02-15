@@ -10,7 +10,7 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 * BLASTN: Altschul, Stephen F., et al. "Basic local alignment search tool." Journal of molecular biology 215.3 (1990): 403-410.
 
 
-
+</br></br></br>
 
 ## Getting Started
 

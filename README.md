@@ -29,7 +29,7 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 
 </br>
 
-### Installing, Testing, and Running
+## Installing, Testing, and Running
 
 #### Clone the project to your local repository:
 ```
@@ -66,7 +66,7 @@ metaphlanPath=""
 tippPath=""
 ```
 
-### Running WEVOTE on FASTA sequence file, use:
+## Running WEVOTE on FASTA sequence file, use:
 ```
 run_WEVOTE_PIPELINE.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
 ```
@@ -112,7 +112,7 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 
 
 </br></br>
-### How to generate abundance profile from WEVOTE output:
+## How to generate abundance profile from WEVOTE output:
 WEVOTE supports calculating the abundance for the reads or contigs profiling. To execute the the Abundance script on WEVOTE output, use:
 ```
 run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>

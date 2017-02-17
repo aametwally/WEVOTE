@@ -6,7 +6,7 @@ Metwally, Ahmed A., Yang Dai, Patricia W. Finn, and David L. Perkins. "WEVOTE: W
 http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163527
 
 ###  Note
-Although the current version of WEVOTE only supports five tools, the voting scheme in our framework is flexible and allows for the inclusion or removal of different methods. The current supported tools are:
+Although the current version of WEVOTE only supports five tools, the voting scheme in our framework is flexible and allows for the inclusion or removal of different methods. The currently supported tools are:
 * Kraken: Wood, Derrick E., and Steven L. Salzberg. "Kraken: ultrafast metagenomic sequence classification using exact alignments." Genome biology 15.3 (2014): R46.
 * Clark: Ounit, Rachid, et al. "CLARK: fast and accurate classification of metagenomic and genomic sequences using discriminative k-mers." BMC genomics 16.1 (2015): 236.
 * MetaPhlAn: Segata, Nicola, et al. "Metagenomic microbial community profiling using unique clade-specific marker genes." Nature methods 9.8 (2012): 811-814.
@@ -24,8 +24,8 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 1. BLASTN, Kraken, TIPP, CLARK, and MetaPhlan installed on the machine. 
 2. g++ 
 3. OpenMP: for multithreading execution. 
-4. Machine with at least 75 GB to run Kraken and Clark. You may ingore this prerequisites if you will not use kraken or clark. 
-5. R: for generating summary statitcs, graphs, and messaging the data to be compatible with Phyloseq package. 
+4. A machine with at least 75 GB to run Kraken and Clark. You may ignore this prerequisite if you do not use kraken or clark. 
+5. R: for generating summary statistics, graphs, and messaging the data to be compatible with Phyloseq package. 
 
 </br>
 
@@ -43,7 +43,7 @@ cd WEVOTE
 ./install.sh
 ```
 
-#### Add WEVOTE path to the PATH enviromental variable
+#### Add WEVOTE path to the PATH environmental variable
 ```
 export PATH=$PATH:<path-to-WEVOTE>
 ```
@@ -127,7 +127,7 @@ run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <
 ```
 
 #### Abundance profiling output format:
-Each line of the Abundance file has 10 fileds. Output lines have comma-delimted fields; from left to right, they are:
+The abundance ouput file is a comma-seprated file that has 10 fields; from left to right, they are:
 * Taxon: taxonomy ID  
 * Count: number of reads classified to the taxon in the first field  
 * Superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon  

@@ -53,6 +53,7 @@ Alternatively, you can add the to the ~/.bashrc file.
 #### Copy WEVOTE configuration file (wevote.cfg) to the directory where your FASTA file exists:
 ```
 cp wevote.cfg [directory-where-FASTA-file-exists]
+cd [directory-where-FASTA-file-exists]
 ```
 
 

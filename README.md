@@ -66,7 +66,7 @@ metaphlanPath=""
 tippPath=""
 ```
 </br>
-## Running WEVOTE on FASTA sequence file, use:
+## Running WEVOTE on FASTA sequence file:
 ```
 run_WEVOTE_PIPELINE.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
 ```

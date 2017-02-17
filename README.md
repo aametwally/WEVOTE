@@ -16,10 +16,8 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 
 </br>
 
--------------------------------------
-### Getting Started
--------------------------------------
 
+### Getting Started
 
 
 ### Prerequisites
@@ -54,11 +52,10 @@ export PATH=$PATH:<path-to-WEVOTE>
 #### Copy WEVOTE configuration file (wevote.cfg) to the directory where your FASTA file exists:
 ```
 cp wevote.cfg [directory-where-FASTA-file-exists]
-cd [directory-where-FASTA-file-exists]
 ```
 
 
-#### Add the path of each individual tool's executable and database to wevote.cfg:
+#### In the directory where your the FASTA file exists, edit wevote.cfg to add the path of each individual tool's executable and database between the double quotes:
 ```
 blastnPath=""
 blastDB=""
@@ -70,7 +67,7 @@ metaphlanPath=""
 tippPath=""
 ```
 
-#### To execute the WEVOTE on FASTA sequence file, use:
+### Running WEVOTE on FASTA sequence file, use:
 ```
 run_WEVOTE_PIPELINE.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
 ```
@@ -82,7 +79,7 @@ run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clar
 ```
 
 </br>
-### Implemented options:
+#### Implemented options:
 ```
 -h|--help                     help flag
 -i|--input <input-file>       input query
@@ -101,7 +98,7 @@ run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clar
 ```
 </br>
 
-### WEVOTE classification Output Format:
+#### WEVOTE classification Output Format:
 Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:
 * The sequence ID, obtained from the FASTA header.
 * The number of tools that have classified the sequence.
@@ -123,7 +120,7 @@ run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <
 ```
 </br>
 
-### Abundance profiling implemented options: 
+#### Abundance profiling implemented options: 
 ```
 -h|--help                  	 help flag
 -i|--input <input-file>    	 input query
@@ -133,7 +130,7 @@ run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <
 --seqcount <contig-reads-count-file>		 File that contains how many reads are used to assemble each contig
 ```
 </br>
-### Abundance profiling output format:
+#### Abundance profiling output format:
 Each line of the Abundance file has 10 fileds. Output lines have comma-delimted fields; from left to right, they are:
 * Taxon: taxonomy ID  
 * Count: number of reads classified to the taxon in the first field  

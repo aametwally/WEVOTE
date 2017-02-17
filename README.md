@@ -47,6 +47,8 @@ cd WEVOTE
 ```
 export PATH=$PATH:<path-to-WEVOTE>
 ```
+Alternatively, you can add the to the ~/.bashrc file. 
+
 
 #### Copy WEVOTE configuration file (wevote.cfg) to the directory where your FASTA file exists:
 ```

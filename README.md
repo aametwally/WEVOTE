@@ -16,8 +16,8 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 </br>
 
 
-## Getting Started
-----------------------------------
+# Getting Started
+
 
 ### Prerequisites
 
@@ -65,7 +65,7 @@ clarkDB=""
 metaphlanPath=""
 tippPath=""
 ```
-
+</br>
 ## Running WEVOTE on FASTA sequence file, use:
 ```
 run_WEVOTE_PIPELINE.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
@@ -77,7 +77,6 @@ run_WEVOTE_PIPELINE.sh -i <input-query> -o <output-prefix> --db <path-to-taxonom
 run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
 
-</br>
 #### Implemented options:
 ```
 -h|--help                     help flag
@@ -95,7 +94,6 @@ run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clar
 --metaphlan                   Run MetaPhlAn
 -c|--classfy                  Start the pipeline from the classification step. i.e., skip running individual tools
 ```
-</br>
 
 #### WEVOTE classification Output Format:
 Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:
@@ -111,13 +109,12 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 * The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE.
 
 
-</br></br>
+</br>
 ## How to generate abundance profile from WEVOTE output:
 WEVOTE supports calculating the abundance for the reads or contigs profiling. To execute the the Abundance script on WEVOTE output, use:
 ```
 run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
 ```
-</br>
 
 #### Abundance profiling implemented options: 
 ```
@@ -128,7 +125,7 @@ run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <
 --threads <num-threads>    	 Number of threads
 --seqcount <contig-reads-count-file>		 File that contains how many reads are used to assemble each contig
 ```
-</br>
+
 #### Abundance profiling output format:
 Each line of the Abundance file has 10 fileds. Output lines have comma-delimted fields; from left to right, they are:
 * Taxon: taxonomy ID  

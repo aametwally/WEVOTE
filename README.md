@@ -1,5 +1,9 @@
 # What is WEVOTE?
-WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies metagenome shotgun sequencing DNA reads based on an ensemble of existing methods using k-mer based, marker-based, and naive-similarity based approaches. The performance evaluation based on fourteen simulated microbiome datasets consistently demonstrates that WEVOTE achieves a high level of sensitivity and precision compared to the individual methods across different taxonomic levels. The major advantage of the WEVOTE pipeline is that the user can make the choice of which tools to use in order to explore the trade-off between sensitivity, precision, time, and memory. The WEVOTE architecture is flexible so that additional taxonomic tools can be easily added, or the current tools can be replaced by improved ones. Moreover, the score assigned to the taxon for each read indicates the confidence level of the assignment. This information is especially useful for the assessment of false positive annotations at a particular taxonomic level. The classification score given by WEVOTE can be used for any downstream analysis that requires the high confidence of the annotated sequences. Here is the full paper: http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163527
+WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies metagenome shotgun sequencing DNA reads based on an ensemble of existing methods using k-mer based, marker-based, and naive-similarity based approaches. The performance evaluation based on fourteen simulated microbiome datasets consistently demonstrates that WEVOTE achieves a high level of sensitivity and precision compared to the individual methods across different taxonomic levels. The major advantage of the WEVOTE pipeline is that the user can make the choice of which tools to use in order to explore the trade-off between sensitivity, precision, time, and memory. The WEVOTE architecture is flexible so that additional taxonomic tools can be easily added, or the current tools can be replaced by improved ones. Moreover, the score assigned to the taxon for each read indicates the confidence level of the assignment. This information is especially useful for the assessment of false positive annotations at a particular taxonomic level. The classification score given by WEVOTE can be used for any downstream analysis that requires the high confidence of the annotated sequences. 
+
+### Publication:
+Metwally, Ahmed A., Yang Dai, Patricia W. Finn, and David L. Perkins. "WEVOTE: Weighted Voting Taxonomic Identification Method of Microbial Sequences." PloS one 11, no. 9 (2016): e0163527.
+http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163527
 
 
 Although the current version of WEVOTE only supports five tools, the voting scheme in our framework is flexible and allows for the inclusion or removal of different methods. The current supported tools are:
@@ -10,7 +14,7 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 * BLASTN: Altschul, Stephen F., et al. "Basic local alignment search tool." Journal of molecular biology 215.3 (1990): 403-410.
 
 
-</br></br>
+</br>
 
 ## Getting Started
 
@@ -37,8 +41,19 @@ cd WEVOTE
 ./install.sh
 ```
 
+#### Add WEVOTE path to the PATH enviromental variable
+```
+export PATH=$PATH:<path-to-WEVOTE>
+```
 
-#### Add the path of each individual tool's executable and database to wevote.cfg
+#### Copy WEVOTE configuration file (wevote.cfg) to the directory where your FASTA file exists:
+```
+cp wevote.cfg [directory-where-FASTA-file-exists]
+cd [directory-where-FASTA-file-exists]
+```
+
+
+#### Add the path of each individual tool's executable and database to wevote.cfg:
 ```
 blastnPath=""
 blastDB=""
@@ -52,13 +67,13 @@ tippPath=""
 
 #### To execute the WEVOTE on FASTA sequence file, use:
 ```
-./wevote_pipeline.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
+run_WEVOTE_PIPELINE.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
 ```
 
 
 #### Example:
 ```
-./wevote_pipeline.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
+run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
 
 </br>
@@ -95,11 +110,11 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 * The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE.
 
 
-</br></br><br>
+</br></br>
 ### How to generate abundance profile from WEVOTE output:
 WEVOTE supports calculating the abundance for the reads or contigs profiling. To execute the the Abundance script on WEVOTE output, use:
 ```
-./calcAbundance.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
+run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
 ```
 </br>
 
@@ -128,5 +143,5 @@ Each line of the Abundance file has 10 fileds. Output lines have comma-delimted 
 
 </br></br>
 
-
-### Please report any bugs & suggestions to: ametwa2@uic.edu
+### Bugs and Suggestions
+WEVOTE is under active research development. Please report any bugs/suggestions to Ahmed Metwally (ametwa2@uic.edu).

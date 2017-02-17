@@ -91,32 +91,32 @@ case $key in
 		;;    
     -o|--output)
 		outputPrefix=$2
-		echo "Output prefix= "$outputPrefix
+		echo "Output prefix = "$outputPrefix
 		shift
 		;;
     --db)
 		taxonomyDB=$2
-		echo "Taxonomy Database located at= "$taxonomyDB
+		echo "Taxonomy Database located at = "$taxonomyDB
 		shift
 		;;
     --threads)
 		threads=$2
 		shift
-		echo "Num of threads= "$threads 
+		echo "Num of threads = "$threads 
 		;;     
     -s)
 		minScore=$2
-		echo "WEVOTE score threshold= "$minScore
+		echo "WEVOTE score threshold = "$minScore
 		shift
 		;;   
     -a)
 		minNumAgreed=$2
-		echo "WEVOTE min num of agreed tools threshold= "$minNumAgreed
+		echo "WEVOTE min num of agreed tools threshold = "$minNumAgreed
 		shift
 		;; 
     -k)
 		penalty=$2
-		echo "Penalty= "$penalty 
+		echo "Penalty = "$penalty 
 		shift
 		;;
     --kraken)
@@ -169,7 +169,7 @@ if [ $c != 1 ]; then
 	$blastnPath/blastn -db $blastDB -query $query -out $dirPath/$prefix/$prefix"_OutputBLASTN" -outfmt "6 qseqid sseqid sgi staxids length qstart qend sstart send pident evalue score bitscore stitle" -num_threads $threads -perc_identity 90 -max_target_seqs 1 -evalue 1e-5 -best_hit_score_edge 0.05 -best_hit_overhang 0.25
 	END=$(date +%s)
 	DIFF=`expr $(($END - $START)) / 60`
-	echo -e `date` "\tTax Identification for "$prefix" using BLASTN executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
+	echo -e `date` "\tTax Identification for "$prefix" using BLASTN executed in = "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
 	cut -f1,4 $dirPath/$prefix/$prefix"_OutputBLASTN" | sort -k1,1 -u > $dirPath/$prefix/$prefix"_read_tax_blastn"	
 	fi
 
@@ -182,7 +182,7 @@ if [ $c != 1 ]; then
 	$krakenPath/kraken --db $krakenDB --threads $threads --fasta-input --output $dirPath/$prefix/$prefix"_OutputKraken" $query
 	END=$(date +%s)
 	DIFF=`expr $(($END - $START)) / 60`
-	echo -e `date` "\tTax Identification for "$prefix" using Kraken executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
+	echo -e `date` "\tTax Identification for "$prefix" using Kraken executed in = "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
 	cut -f2,3 $dirPath/$prefix/$prefix"_OutputKraken"  > $dirPath/$prefix/$prefix"_read_tax_kraken"
 	fi
 
@@ -195,7 +195,7 @@ if [ $c != 1 ]; then
 	$tippPath"run_abundance.py" -f $query -c ~/.sepp/tipp.config -d $dirPath/$prefix/$prefix"_out" -x $threads > $dirPath/$prefix/$prefix"_OutputTIPP"
 	END=$(date +%s)
 	DIFF=`expr $(($END - $START)) / 60`
-	echo -e `date` "\tTax Identification for "$prefix" using TIPP executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
+	echo -e `date` "\tTax Identification for "$prefix" using TIPP executed in = "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
 	sed '1d' $dirPath/$prefix/$prefix"_out"/markers/all.classification > $dirPath/$prefix/temp
 	awk '{if ($2!="NA") print $1 "\t" $2; else if ($3!="NA") print $1 "\t" $3; else if ($4!="NA") print $1 "\t" $4; else if ($5!="NA") print $1 "\t" $5; else if ($6!="NA") print $1 "\t" $6; else if ($7!="NA") print $1 "\t" $7}' $dirPath/$prefix/temp > $dirPath/$prefix/$prefix"_read_tax_tipp"
 	rm $dirPath/$prefix/temp
@@ -214,7 +214,7 @@ if [ $c != 1 ]; then
 	END=$(date +%s)
 	DIFF=`expr $(($END - $START)) / 60`
 	
-	echo -e `date` "\tTax Identification for "$prefix" using CLARK executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
+	echo -e `date` "\tTax Identification for "$prefix" using CLARK executed in = "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
 	sed 1d $dirPath/$prefix/$prefix"_OutputCLARK.csv" | sed "s/,/\t/g" | cut -f 1,3 | awk '{if ($2!="NA") print $1 "\t" $2}' > $dirPath/$prefix/$prefix"_read_tax_clark"
 	fi
 
@@ -231,7 +231,7 @@ if [ $c != 1 ]; then
 	python $metaphlanPath/metaphlan.py $query --bowtie2db  $metaphlanPath/bowtie2db/mpa --bt2_ps sensitive-local --bowtie2out $dirPath/$prefix/$prefix".bt2out" --input_type multifasta  --nproc $threads > $dirPath/$prefix/$prefix"_OutputMetaPhlAn"
 	END=$(date +%s)
 	DIFF=`expr $(($END - $START)) / 60`
-	echo -e `date` "\tTax Identification for "$prefix" using MetaPhlAn executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
+	echo -e `date` "\tTax Identification for "$prefix" using MetaPhlAn executed in = "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
 	awk '{print $2 "\t" $1}' $dirPath/$prefix/$prefix".bt2out" | sort -k1,1 > $dirPath/$prefix/$prefix".bt2out_sorted"
 	join $dirPath/$prefix/$prefix".bt2out_sorted" /export/home/ametwa2/TaxIdMeth/MetaPhlAn/metaphlan/MphId_taxID.txt -a1 | sed "s/ /\t/g" | awk '{print $2 "\t" $3}' > $dirPath/$prefix/$prefix"_read_tax_metaphlan"
 	fi
@@ -294,7 +294,7 @@ START=$(date +%s)
 $my_dir/bin/WEVOTE -i $dirPath/$prefix/$prefix"_ensemble.csv" -d $taxonomyDB -p $dirPath/$prefix/$prefix -n $threads -k $penalty -a $minNumAgreed -s $minScore
 END=$(date +%s)
 DIFF=`expr $(($END - $START)) / 60`
-echo -e `date` "\tTax Identification for "$prefix" using WEVOTE executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
+echo -e `date` "\tTax Identification for "$prefix" using WEVOTE executed in = "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
 
 
 

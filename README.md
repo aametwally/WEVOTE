@@ -96,7 +96,7 @@ run_WEVOTE_PIPELINE.sh -i <input-query> -o <output-prefix> --db <path-to-taxonom
 
 #### Example:
 ```
-run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
+run_WEVOTE_PIPELINE.sh -i test_wevote.fa -o test_wevote_output --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
 ```
 
 
@@ -133,9 +133,15 @@ run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <
 --seqcount <contig-reads-count-file>		 File that contains how many reads are used to assemble each contig
 ```
 
-#### Abundance Example
+#### Abundance example:
 ```
-run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
+run_ABUNDANCE.sh -i test_wevote_output_WEVOTE_Details.txt -p test_wevote_abundance --db WEVOTE_DB
+```
+
+#### Abundance example assuming the sequences are from contigs:
+In this case, each sequence in the FASTA file that WEVOTE analyzed is a contig. To calculate the actual number of reads mapped to every taxon, we need to have a mapping file that has the information of how many reads are used to assemble each contig. This file should be a tab-delimited file with two fields. The first field has the contig-ID and the second field has the number of reads that used to assemble the corresponding contig. Here is an example of how to call the script for contigs profiling:
+```
+run_ABUNDANCE.sh -i test_wevote_output_WEVOTE_Details.txt -p test_wevote_abundance --db WEVOTE_DB --seqcount contig_reads.txt
 ```
 
 #### Abundance profiling output format:

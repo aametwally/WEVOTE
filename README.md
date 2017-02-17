@@ -5,7 +5,7 @@ WEVOTE (WEighted VOting Taxonomic idEntification) is a method that classifies me
 Metwally, Ahmed A., Yang Dai, Patricia W. Finn, and David L. Perkins. "WEVOTE: Weighted Voting Taxonomic Identification Method of Microbial Sequences." PloS one 11, no. 9 (2016): e0163527.
 http://journals.plos.org/plosone/article?id=10.1371/journal.pone.0163527
 
-
+###  Note
 Although the current version of WEVOTE only supports five tools, the voting scheme in our framework is flexible and allows for the inclusion or removal of different methods. The current supported tools are:
 * Kraken: Wood, Derrick E., and Steven L. Salzberg. "Kraken: ultrafast metagenomic sequence classification using exact alignments." Genome biology 15.3 (2014): R46.
 * Clark: Ounit, Rachid, et al. "CLARK: fast and accurate classification of metagenomic and genomic sequences using discriminative k-mers." BMC genomics 16.1 (2015): 236.
@@ -19,6 +19,7 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 ## Getting Started
 
 ### Prerequisites
+-------------------------------------
 * BLASTN, Kraken, TIPP, CLARK, and MetaPhlan installed on the machine.
 * g++
 * OpenMP: for multithreading execution.

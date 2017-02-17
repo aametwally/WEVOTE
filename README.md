@@ -21,11 +21,11 @@ This section details steps for installing and running WEVOTE. Current WEVOTE ver
 
 ### Prerequisites
 
-1. BLASTN, Kraken, TIPP, CLARK, and MetaPhlan installed on the machine. 
-2. g++ 
-3. OpenMP: for multithreading execution. 
-4. A machine with at least 75 GB to run Kraken and Clark. You may ignore this prerequisite if you do not use kraken or clark. 
-5. R: for generating summary statistics, graphs, and messaging the data to be compatible with Phyloseq package. 
+* BLASTN, Kraken, TIPP, CLARK, and MetaPhlan installed on the machine. 
+* g++ 
+* OpenMP: for multithreading execution. 
+* A machine with at least 75 GB to run Kraken and Clark. You may ignore this prerequisite if you do not use kraken or clark. 
+* R: for generating summary statistics, graphs, and messaging the data to be compatible with Phyloseq package. 
 
 </br>
 
@@ -97,16 +97,16 @@ run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clar
 
 #### WEVOTE classification Output Format:
 Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:
-* The sequence ID, obtained from the FASTA header.
-* The number of tools that have classified the sequence.
-* The number of tools that agreed on WEVOTE decision.
-* Classification score.
-* Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #1.
-* Taxonomy ID used to classify the sequence by tool #2. This is 0 if the sequence is unclassified by tool #2.
-* Taxonomy ID used to classify the sequence by tool #3. This is 0 if the sequence is unclassified by tool #3.
-* Taxonomy ID used to classify the sequence by tool #4. This is 0 if the sequence is unclassified by tool #4.
-* Taxonomy ID used to classify the sequence by tool #5. This is 0 if the sequence is unclassified by tool #5.
-* The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE.
+1. The sequence ID, obtained from the FASTA header. 
+2. The number of tools that have classified the sequence. 
+3. The number of tools that agreed on WEVOTE decision. 
+4. Classification score. 
+5. Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #1. 
+6. Taxonomy ID used to classify the sequence by tool #2. This is 0 if the sequence is unclassified by tool #2. 
+7. Taxonomy ID used to classify the sequence by tool #3. This is 0 if the sequence is unclassified by tool #3. 
+8. Taxonomy ID used to classify the sequence by tool #4. This is 0 if the sequence is unclassified by tool #4. 
+9. Taxonomy ID used to classify the sequence by tool #5. This is 0 if the sequence is unclassified by tool #5. 
+10. The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE. 
 
 
 </br>
@@ -128,16 +128,16 @@ run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <
 
 #### Abundance profiling output format:
 The abundance ouput file is a comma-seprated file that has 10 fields; from left to right, they are:
-* Taxon: taxonomy ID  
-* Count: number of reads classified to the taxon in the first field  
-* Superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon  
-* Kingdom: the name of the kingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined kingdom for this taxon  
-* Phylum: the name of the phylum corresponding to the taxonomy id of the first field. This field is left empty if no defined phylum for this taxon  
-* Class: the name of the class corresponding to the taxonomy id of the first field. This field is left empty if no defined class for this taxon  
-* Order: the name of the order corresponding to the taxonomy id of the first field. This field is left empty if no defined order for this taxon
-* Family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon
-* Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon
-* Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon
+1. Taxon: taxonomy ID. 
+2. Count: number of reads classified to the taxon in the first field. 
+3. Superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon. 
+4. Kingdom: the name of the kingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined kingdom for this taxon. 
+5. Phylum: the name of the phylum corresponding to the taxonomy id of the first field. This field is left empty if no defined phylum for this taxon. 
+6. Class: the name of the class corresponding to the taxonomy id of the first field. This field is left empty if no defined class for this taxon. 
+7. Order: the name of the order corresponding to the taxonomy id of the first field. This field is left empty if no defined order for this taxon. 
+8. Family: the name of the family corresponding to the taxonomy id of the first field. This field is left empty if no defined family for this taxon. 
+9. Genus: the name of the genus corresponding to the taxonomy id of the first field. This field is left empty if no defined genus for this taxon. 
+10. Species: the name of the species corresponding to the taxonomy id of the first field. This field is left empty if no defined species for this taxon. 
 
 </br></br>
 

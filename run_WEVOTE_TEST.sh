@@ -9,17 +9,17 @@
 
 
 
-./run_WEVOTE_PIPELINE.sh -i contigs.fa -o test_BIGcontigs_4tools_local --db WEVOTE_DB/ --kraken --blastn --clark --metaphlan --threads 16
+../WEVOTE_optimize/run_WEVOTE_PIPELINE.sh -i test_contigs.fa -o TEST --db WEVOTE_DBwww/ --blastn --metaphlan --threads 16
 
 
-./run_ABUNDANCE.sh -i test_BIGcontigs_4tools_local/test_BIGcontigs_4tools_local_WEVOTE_Details.txt -p test_BIGcontigs_4tools_local/Hadoooo --db WEVOTE_DB/ --seqcount ReadsPerContigSorted.txt
+../WEVOTE_optimize/run_ABUNDANCE.sh -i Test_Utilities_Allergy_WEVOTE_Details.txt -p ABU/Hadoooo --db WEVOTE_DB/ --seqcount ReadsPerContigSorted.txt
+
+
 
 
 #WEVOTE:
-#./wevote_pipeline.sh -i test_contigs.fa -o test_contigs_output_extreme_3tools_4 --db WEVOTE_DB/ --kraken --blastn --clark --threads 16
 #./WEVOTE -i $dirPath/$prefix/$prefix"_ensemble.csv" -d $taxonomyDB -p $dirPath/$prefix/$prefix -n $threads -k $penalty -a $minNumAgreed -s $minScore
 #
 #
 #ABUNDANCE:
-#./calcAbundance.sh -i test_contigs_output_extreme_3tools_4/test_contigs_output_extreme_3tools_4_WEVOTE_Details.txt -p test_contigs_output_extreme_3tools_4/Ahmed_Contig --db WEVOTE_DB/ --seqcount ReadsPerContigSorted.txt
 #./ABUNDANCE -i $prefix"_WEVOTE_taxID_count.csv" -p $prefix -d $taxonomyDB

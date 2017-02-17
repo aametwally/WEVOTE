@@ -48,7 +48,7 @@ Implemented options:
 -c|--classfy               \t Start the pipeline from the classification step. i.e., skip running individual tools
 "
 
-
+my_dir=`dirname $0`
 query=""
 outputPrefix=""
 blastnFlag=0
@@ -282,7 +282,7 @@ fi
 ### Manipulate the NCBI taxonomy database 
 if [[ ! -f $taxonomyDB/names_wevote.dmp || ! -f $taxonomyDB/nodes_wevote.dmp ]]; then	
 	echo "Downloading NCBI Taxonomy Database in progress ........"
-	./downloadTaxonomyDB.sh $taxonomyDB
+	$my_dir/downloadTaxonomyDB.sh $taxonomyDB
 fi
 
 
@@ -291,7 +291,7 @@ fi
 START=$(date +%s)
 	echo "WEVOTE classification algorithm in progress ........"
 
-./WEVOTE -i $dirPath/$prefix/$prefix"_ensemble.csv" -d $taxonomyDB -p $dirPath/$prefix/$prefix -n $threads -k $penalty -a $minNumAgreed -s $minScore
+$my_dir/bin/WEVOTE -i $dirPath/$prefix/$prefix"_ensemble.csv" -d $taxonomyDB -p $dirPath/$prefix/$prefix -n $threads -k $penalty -a $minNumAgreed -s $minScore
 END=$(date +%s)
 DIFF=`expr $(($END - $START)) / 60`
 echo -e `date` "\tTax Identification for "$prefix" using WEVOTE executed in= "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"

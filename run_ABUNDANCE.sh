@@ -14,6 +14,7 @@ Implemented options:
 "
 
 
+my_dir=`dirname $0`
 query=""
 prefix=""
 taxonomyDB=""
@@ -92,7 +93,14 @@ else
 fi 
 
 
+### Manipulate the NCBI taxonomy database 
+if [[ ! -f $taxonomyDB/names_wevote.dmp || ! -f $taxonomyDB/nodes_wevote.dmp ]]; then
+        echo "Downloading NCBI Taxonomy Database in progress ........"
+        $my_dir/downloadTaxonomyDB.sh $taxonomyDB
+fi
+
+
 
 ### Get the abundance and full taxonomy
-./ABUNDANCE -i $prefix"_WEVOTE_taxID_count.csv" -p $prefix -d $taxonomyDB
+$my_dir/bin/ABUNDANCE -i $prefix"_WEVOTE_taxID_count.csv" -p $prefix -d $taxonomyDB
 

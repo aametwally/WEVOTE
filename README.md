@@ -75,11 +75,6 @@ run_WEVOTE_PIPELINE.sh -i <input-query> -o <output-prefix> --db <path-to-taxonom
 ```
 
 
-#### Example:
-```
-run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
-```
-
 #### Implemented options:
 ```
 -h|--help                     help flag
@@ -97,6 +92,13 @@ run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clar
 --metaphlan                   Run MetaPhlAn
 -c|--classfy                  Start the pipeline from the classification step. i.e., skip running individual tools
 ```
+
+
+#### Example:
+```
+run_WEVOTE_PIPELINE.sh -i HiSeq_accuracy.fa -o HiSeqOutput --db WEVOTE_DB --clark --metaphlan --blastn --kraken --tipp --threads 16 -a 2
+```
+
 
 #### WEVOTE classification Output Format:
 Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:
@@ -117,9 +119,6 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 </br>
 ## How to generate abundance profile from WEVOTE output:
 WEVOTE supports calculating the abundance for the reads or contigs profiling. To execute the the Abundance script on WEVOTE output, use:
-```
-run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
-```
 
 #### Abundance profiling implemented options: 
 ```
@@ -129,6 +128,11 @@ run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <
 --db <taxonomy_db>         	 taxonomy database path
 --threads <num-threads>    	 Number of threads
 --seqcount <contig-reads-count-file>		 File that contains how many reads are used to assemble each contig
+```
+
+#### Abundance Example
+```
+run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <options>
 ```
 
 #### Abundance profiling output format:

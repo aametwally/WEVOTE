@@ -16,7 +16,7 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 </br>
 
 
-### Getting Started
+## Getting Started
 ----------------------------------
 
 ### Prerequisites

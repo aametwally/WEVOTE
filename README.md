@@ -130,6 +130,8 @@ run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <
 
 #### Abundance profiling output format:
 The abundance ouput file is a comma-seprated file that has 10 fields; from left to right, they are:
+
+
 1. Taxon: taxonomy ID. 
 2. Count: number of reads classified to the taxon in the first field. 
 3. Superkingdom: the name of the superkingdom corresponding to the taxonomy id of the first field. This field is left empty if no defined superkingdom for this taxon. 

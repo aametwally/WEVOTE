@@ -15,11 +15,10 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 
 
 </br>
-
-## Getting Started
-
-### Prerequisites
 -------------------------------------
+Getting Started
+-------------------------------------
+### Prerequisites
 * BLASTN, Kraken, TIPP, CLARK, and MetaPhlan installed on the machine.
 * g++
 * OpenMP: for multithreading execution.

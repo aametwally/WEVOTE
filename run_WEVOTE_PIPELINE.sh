@@ -3,9 +3,9 @@
 
 ###******************************************************************###
 ###********                    WEVOTE                        ********###
-###********     Weighted Voting Taxonomic Identification     ********###
+###********     WEighted VOting Taxonomic IdEntification     ********###
 ###********                                                  ********###
-###********       Copyright by Ahmed Metwally (C) 2016       ********###
+###********     Copyright by Ahmed A. Metwally (C) 2016      ********###
 ###********        Finn-Perkins' Lab & Dai's Lab, UIC        ********###
 ###********                                                  ********###
 ###********  This code is released under GNU GPLv3 License   ********###

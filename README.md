@@ -12,13 +12,12 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 * MetaPhlAn: Segata, Nicola, et al. "Metagenomic microbial community profiling using unique clade-specific marker genes." Nature methods 9.8 (2012): 811-814.
 * TIPP: Nguyen, N. P., Mirarab, S., Liu, B., Pop, M., & Warnow, T. (2014). TIPP: taxonomic identification and phylogenetic profiling. Bioinformatics, 30(24), 3548-3555.
 * BLASTN: Altschul, Stephen F., et al. "Basic local alignment search tool." Journal of molecular biology 215.3 (1990): 403-410.
-----------------------------------
 
 </br>
 
 
 ### Getting Started
-
+----------------------------------
 
 ### Prerequisites
 

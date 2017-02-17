@@ -16,19 +16,19 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 
 </br>
 
-
+-------------------------------------
 ### Getting Started
-
-
-
 -------------------------------------
+
+
+
 ### Prerequisites
--------------------------------------
-* BLASTN, Kraken, TIPP, CLARK, and MetaPhlan installed on the machine.
-* g++
-* OpenMP: for multithreading execution.
-* Machine with at least 75 GB to run Kraken and Clark. You may ingore this prerequisites if you will not use kraken or clark.
-* R: for generating summary statitcs, graphs, and messaging the data to be compatible with Phyloseq package.
+-------------------
+1. BLASTN, Kraken, TIPP, CLARK, and MetaPhlan installed on the machine. 
+2. g++ 
+3. OpenMP: for multithreading execution. 
+4. Machine with at least 75 GB to run Kraken and Clark. You may ingore this prerequisites if you will not use kraken or clark. 
+5. R: for generating summary statitcs, graphs, and messaging the data to be compatible with Phyloseq package. 
 
 </br>
 

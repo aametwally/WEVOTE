@@ -104,10 +104,11 @@ run_WEVOTE_PIPELINE.sh -i test_wevote.fa -o test_wevote_output --db WEVOTE_DB --
 Each sequence classified by WEVOTE results in a single line of output. Output lines have tab-delimited fields; from left to right, they are:
 
 
-1. The sequence ID, obtained from the FASTA header.  
-2. The number of tools that have classified the sequence.  
-3. The number of tools that agreed on WEVOTE decision.  
-4. Classification score.  
+1. The sequence ID, obtained from the FASTA header. 
+2. The total number of tools used in WEVOTE (N). 
+2. The number of tools that have classified the sequence (C).  
+3. The number of tools that agreed on WEVOTE decision (A).  
+4. Classification score (S).  
 5. Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #1. 
 6. Taxonomy ID used to classify the sequence by tool #2. This is 0 if the sequence is unclassified by tool #2. 
 7. Taxonomy ID used to classify the sequence by tool #3. This is 0 if the sequence is unclassified by tool #3. 

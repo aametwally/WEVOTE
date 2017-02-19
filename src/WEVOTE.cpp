@@ -293,7 +293,7 @@ int main(int argc, char *argv[])
 			PrintString = PrintString + ss.str();
 		}
 		
-	myfile << Reads[i].seqID << "\t"<< Reads[i].numToolsReported << "\t" << Reads[i].numToolsAgreed<<"\t" << Reads[i].score << "\t" << PrintString << "\t" << Reads[i].resolvedTaxon << "\n";
+	myfile << Reads[i].seqID << "\t" << Reads[i].numToolsUsed << "\t" << Reads[i].numToolsReported << "\t" << Reads[i].numToolsAgreed<<"\t" << Reads[i].score << "\t" << PrintString << "\t" << Reads[i].resolvedTaxon << "\n";
 		
 	}	
 	myfile.close();

@@ -106,7 +106,7 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 
 1. The sequence ID, obtained from the FASTA header. 
 2. The total number of tools used in WEVOTE (N). 
-2. The number of tools that have classified the sequence (C).  
+2. The number of tools that were able to classify the sequence (C).  
 3. The number of tools that agreed on WEVOTE decision (A).  
 4. Classification score (S).  
 5. Taxonomy ID used to classify the sequence by tool #1. This is 0 if the sequence is unclassified by tool #1. 

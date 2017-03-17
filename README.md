@@ -24,7 +24,7 @@ This section details steps for installing and running WEVOTE. Current WEVOTE ver
 * BLASTN, Kraken, TIPP, CLARK, and MetaPhlan installed on the machine. 
 * g++ 
 * OpenMP: for multithreading execution. 
-* A machine with at least 75 GB to run Kraken and Clark. You may ignore this prerequisite if you do not use kraken or clark. 
+* A machine with RAM of at least 75 GB to run Kraken and Clark. You may ignore this prerequisite if you do not use kraken or clark. 
 * R: for generating summary statistics, graphs, and messaging the data to be compatible with Phyloseq package. 
 
 </br>

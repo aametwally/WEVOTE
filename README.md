@@ -17,7 +17,7 @@ Although the current version of WEVOTE only supports five tools, the voting sche
 
 
 # Getting Started
-This section details steps for installing and running WEVOTE. Current WEVOTE version only support Linux. If you experience difficulty installing or running the software, please contact (Ahmed Metwally: ametwa2@uic.edu).
+This section details steps for installing and running WEVOTE. Current WEVOTE version only supports Linux. If you experience difficulty installing or running the software, please contact (Ahmed Metwally: ametwa2@uic.edu).
 
 ### Prerequisites
 

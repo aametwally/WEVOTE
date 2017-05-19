@@ -68,7 +68,7 @@ clarkDB=""
 metaphlanPath=""
 tippPath=""
 ```
-</br>
+
 ## Running WEVOTE on FASTA sequence file:
 ```
 run_WEVOTE_PIPELINE.sh -i <input-query> -o <output-prefix> --db <path-to-taxonomy-DB> <options> 
@@ -117,7 +117,7 @@ Each sequence classified by WEVOTE results in a single line of output. Output li
 10. The last field is the taxonomy ID assigned to the sequence by WEVOTE. This is 0 if the sequence is unclassified by WEVOTE. 
 
 
-</br>
+
 ## How to generate the abundance profile from WEVOTE output:
 WEVOTE supports calculating the abundance for the reads or contigs profiling. To execute the the Abundance script on WEVOTE output, use:
 

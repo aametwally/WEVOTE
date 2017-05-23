@@ -233,7 +233,7 @@ if [ $c != 1 ]; then
 	DIFF=`expr $(($END - $START)) / 60`
 	echo -e `date` "\tTax Identification for "$prefix" using MetaPhlAn executed in = "$DIFF" min" >> $dirPath/$prefix/$prefix"_Log"
 	awk '{print $2 "\t" $1}' $dirPath/$prefix/$prefix".bt2out" | sort -k1,1 > $dirPath/$prefix/$prefix".bt2out_sorted"
-	join $dirPath/$prefix/$prefix".bt2out_sorted" /export/home/ametwa2/TaxIdMeth/MetaPhlAn/metaphlan/MphId_taxID.txt -a1 | sed "s/ /\t/g" | awk '{print $2 "\t" $3}' > $dirPath/$prefix/$prefix"_read_tax_metaphlan"
+	join $dirPath/$prefix/$prefix".bt2out_sorted" $metaphlanPath/MphId_taxID.txt -a1 | sed "s/ /\t/g" | awk '{print $2 "\t" $3}' > $dirPath/$prefix/$prefix"_read_tax_metaphlan"
 	fi
 
 

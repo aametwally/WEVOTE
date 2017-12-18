@@ -1,1 +1,3 @@
 language: cpp
+compiler: g++
+install: ./install.sh

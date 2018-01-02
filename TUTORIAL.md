@@ -18,7 +18,7 @@ export PATH=$PATH:~/WEVOTE_PACKAGE/WEVOTE
 You can add additional PATH variables or additional environment variables by adding more export commands to .profile. To append more executable paths to PATH, you can just add a : between paths. 
 Example(Don't copy paste this):
 ```
-export PATH=$PATH:~/Documents/kaiju/bin:~/Documents/centrifuge:~/Documents/DIAMOND:~/Documents/WEVOTE_PACKAGE/WEVOTE:~/Documents/blast+/bin:~/Documents/centrifuge/scripts
+export PATH=$PATH:~/WEVOTE_PACKAGE/WEVOTE:~/blast+/bin:~/centrifuge/scripts
 ```
 
 While you are in .profile, you can add one more setting to make your Extreme account a little easier to navigate. You can change the shell prompt from -bash-4.1$ to display your netid and current folder instead by copying this into .profile:
@@ -41,13 +41,25 @@ vim wevote.cfg
 
 Add the paths for WEVOTE’s tools (note that ~/ notation does work correctly when executed as a part of a script in the cluster):
 ```
-blastnPath="/export/home/<YOUR NETID>/WEVOTE_PACKAGE/blast"
-blastDB="/export/home/<YOUR NETID>/WEVOTE_PACKAGE/blastDB/nt"
-krakenPath="/export/home/<YOUR NETID>/WEVOTE_PACKAGE/kraken"
-krakenDB="/export/home/<YOUR NETID>/WEVOTE_PACKAGE/krakenDB"
-clarkPath="/export/home/<YOUR NETID>/WEVOTE_PACKAGE/clark"
-clarkDB="/export/home/<YOUR NETID>/WEVOTE_PACKAGE/clarkDB"
-metaphlanPath="/export/home/<YOUR NETID>/WEVOTE_PACKAGE/metaphlan"
+blastnPath="<PATH to WEVOTE_PACKAGE>/blast"
+blastDB="<PATH to WEVOTE_PACKAGE>/blastDB/nt"
+krakenPath="<PATH to WEVOTE_PACKAGE>/kraken"
+krakenDB="<PATH to WEVOTE_PACKAGE>/krakenDB"
+clarkPath="<PATH to WEVOTE_PACKAGE>/clark"
+clarkDB="<PATH to WEVOTE_PACKAGE>/clarkDB"
+metaphlanPath="<PATH to WEVOTE_PACKAGE>/metaphlan"
+tippPath=""
+```
+
+For the sake of our tutorial and assuming that the WEVOTE_PACKAGE is located on your home directory on Extreme, your wevote.cfg should loook like this:
+```
+blastnPath="~/WEVOTE_PACKAGE/blast"
+blastDB="~/WEVOTE_PACKAGE/blastDB/nt"
+krakenPath="~/WEVOTE_PACKAGE/kraken"
+krakenDB="~/WEVOTE_PACKAGE/krakenDB"
+clarkPath="~/WEVOTE_PACKAGE/clark"
+clarkDB="~/WEVOTE_PACKAGE/clarkDB"
+metaphlanPath="~/WEVOTE_PACKAGE/metaphlan"
 tippPath=""
 ```
 
@@ -57,7 +69,7 @@ cp wevote.cfg ~/
 
 or
 
-cp wevote.cfg <Path to FASTA files not in home directory>
+cp wevote.cfg <PATH to FASTA files directory>
 ```
 
 _Note: FASTA files should always be in the following format:_
@@ -68,7 +80,7 @@ read
 read
 ...
 
-i.e.
+e.g.
 
 >B_cereus_MiSeq.88
 TTCCTTTGTAACTCCGTATAGAATGTCCTACAACCCCAAGAGGCAAGCCTCTTGGTTTGGGCTATGTTCCGTTTCGCTCGCCGCTACTCAGGAAATCGCATTTGCTTTCTCTTCCTCCAGGTACTTAGATGTTTCAGTTCCCTGGGTCTGTCTTCCTTACCCTATGTATTCAGATAAGGATACCATACCATTACGTATGGTGGGTTTCCCCATTCGGAAATCTTCGGATCAAAGCTTACTTACAGCTCCCC
@@ -83,11 +95,11 @@ In order to take advantage of the Extreme cluster’s resources, WEVOTE should n
 
 ### Prepare the Shell Script
 
-To start making a WEVOTE script, create a new file using vim in a directory where you would like to store your shell scripts. No file extension is required. For our examples, we name this script WEVOTERUN and we will use the directory ~/Scripts (you can enter "mkdir Scripts" in your home directory to make this).
+To start making a WEVOTE script, create a new file using vim in a directory where you would like to store your shell scripts. For our examples, we name this script WEVOTERUN.sh and we will use the directory ~/TestWEVOTE (you can enter "mkdir Scripts" in your home directory to make this).
 ```
 cd
-mkdir Scripts
-cd Scripts
+mkdir TestWEVOTE
+cd TestWEVOTE
 vim WEVOTERUN
 ```
 
@@ -101,11 +113,11 @@ Next, we need to define options for the Extreme cluster management system using 
 #PBS -l nodes=16 
 #PBS -l partition=ALL
 #PBS -l walltime=24:00:00
-#PBS -M yournetid@uic.edu
-#PBS -m be
+#PBS -M <your-netid>@uic.edu
+#PBS -m abe
 #PBS -N WEVOTERUN
 #PBS -V
-#PBS -o ~/Scripts/WEVOTERUN.out
+#PBS -o ~/TestWEVOTE/WEVOTERUN.out
 ```
 
 PBS -l commands describe the resources required for the job, with nodes being the number of computing nodes requested, partition meaning what part of Extreme to run on (leave this setting alone), and walltime indicating how much time the program is allotted to run before it is terminated in ds:hrs:mins:secs.
@@ -155,14 +167,10 @@ Options:
 -c|--classfy                  Start the pipeline from the classification step. i.e., skip running individual tools
 ```
 
-Before we run that command, we should tell our script to change directories to where your FASTA files and wevote.cfg are placed. For our example, this is the home directory.
-```
-cd
-```
 
 Now we can add the example command that actually runs WEVOTE (Note that threads should be adjusted based on the number of nodes you request. Each node usually can run 16 threads.):
 ```
-run_WEVOTE_PIPELINE.sh -i 100readtest.fa -o ~/wevote_output --db ~/WEVOTE_PACKAGE/WEVOTE_DB --clark --metaphlan --blastn --kraken --threads 256 -a 2
+run_WEVOTE_PIPELINE.sh -i 100readtest.fa -o wevote_output --db ~/WEVOTE_PACKAGE/WEVOTE_DB --clark --metaphlan --blastn --kraken --threads 256 -a 2
 ```
 
 After this command executes, you can add one more line to let the script indicate that it finished running successfully. This message will be saved to stdout.
@@ -170,23 +178,22 @@ After this command executes, you can add one more line to let the script indicat
 echo ‘Done’
 ```
 
-In summary, your script for running WEVOTE on a file called 100readtest.fa should look like this:
+In summary, your script for running WEVOTE on a file called 100readtest.fa that saved in a directory "TestWEVOTE" should look like this:
 ```
 #!/bin/bash
 #PBS -l nodes=1 
 #PBS -l partition=ALL
 #PBS -l walltime=00:20:00
-#PBS -M yournetid@uic.edu
-#PBS -m be
+#PBS -M <your-netid>@uic.edu
+#PBS -m abe
 #PBS -N WEVOTERUN
 #PBS -V
-#PBS -o ~/Scripts/WEVOTERUN.out
+#PBS -o ~/TestWEVOTE/WEVOTERUN.out
 
 module load tools/numpy-1.8.1-intel-python2.7.6
 module load apps/bowtie2-2.2.9
 
-cd
-run_WEVOTE_PIPELINE.sh -i 100readtest.fa -o ~/wevote_output --db ~/WEVOTE_PACKAGE/WEVOTE_DB --clark --metaphlan --blastn --kraken --threads 16 -a 2
+run_WEVOTE_PIPELINE.sh -i 100readtest.fa -o wevote_output --db ~/WEVOTE_PACKAGE/WEVOTE_DB --clark --metaphlan --blastn --kraken --threads 16 -a 2
 
 echo 'Done'
 ```
@@ -196,7 +203,7 @@ Save the file and exit vim.
 ### Running WEVOTE on the Cluster
 To run your new script on the cluster:
 ```
-qsub WEVOTERUN
+qsub -q batch WEVOTERUN.sh
 ```
 
 _Note: If you run WEVOTE multiple times in the same output folder, errors may occur. Always designated a new folder for each run, or delete the folder contents._
@@ -249,7 +256,7 @@ run_ABUNDANCE.sh -i <input-file> -p <output-prefix> --db <path-to-taxonomy-DB> <
 After successfully running our example WEVOTE script above, you can use the following commands to run WEVOTE's abundance analysis on the output. The input for abundance is always the file with WEVOTE_details.txt as a suffix. In our case, this file should be in the folder wevote_output, which we designated in the script for running WEVOTE.
 
 ```
-cd ~/wevote_output
+cd wevote_output
 run_ABUNDANCE.sh -i wevote_output_WEVOTE_Details.txt -p test_wevote_abundance --db ~/WEVOTE_PACKAGE/WEVOTE_DB
 ```
 
@@ -317,22 +324,22 @@ The full script for our example would be:
 #PBS -l nodes=1 
 #PBS -l partition=ALL
 #PBS -l walltime=00:20:00
-#PBS -M yournetid@uic.edu
-#PBS -m be
+#PBS -M <your-netid>@uic.edu
+#PBS -m abe
 #PBS -N WEVOTERUN
 #PBS -V
-#PBS -o ~/Scripts/WEVOTERUN.out
+#PBS -o ~/TestWEVOTE/WEVOTERUN.out
 
 module load tools/numpy-1.8.1-intel-python2.7.6
 module load apps/bowtie2-2.2.9
 
-cd
-run_WEVOTE_PIPELINE.sh -i 100readtest.fa -o ~/wevote_output --db ~/WEVOTE_PACKAGE/WEVOTE_DB --clark --metaphlan --blastn --kraken --threads 16 -a 2
 
-cd ~/wevote_output
+run_WEVOTE_PIPELINE.sh -i 100readtest.fa -o wevote_output --db ~/WEVOTE_PACKAGE/WEVOTE_DB --clark --metaphlan --blastn --kraken --threads 16 -a 2
+
+cd wevote_output
 run_ABUNDANCE.sh -i wevote_output_WEVOTE_Details.txt -p test_wevote_abundance --db ~/WEVOTE_PACKAGE/WEVOTE_DB
 cd ~/WEVOTE_PACKAGE/WEVOTE
-run_STATISTICS.sh ~/wevote_output statistics
+run_STATISTICS.sh ~/TestWEVOTE/wevote_output statistics
 
 echo 'Done'
 ```

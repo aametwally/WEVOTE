@@ -1,4 +1,4 @@
-# WEVOTE Bootcamp
+# WEVOTE Bootcamp for Finn-Perkins lab members
 This tutorial is intended for beginner Linux and WEVOTE users, and will detail the steps required to install and run WEVOTE on the UIC Extreme cluster using a precompiled WEVOTE_PACKAGE. If you have not installed and setup your Linux virtual machine and Extreme account, see the [previous tutorial](https://github.com/aametwally/FP_MetaGenomics/blob/master/Tutorial_InstallLINUX.md).
 
 ## WEVOTE Installation
